@@ -3,11 +3,12 @@ name: linter
 on:
   # Execute on every push that isn't to the default branch
   push:
-    branches-ignore: [$default-branch]
+    branches: 
+      - '**'
   # Execute on every pull request to the default branch
-  pull_request:
-    branches: [$default-branch]
-
+  pull_request_target:
+    branches: 
+      - master
 jobs:
   linter:
     runs-on: ubuntu-latest
