@@ -12,7 +12,7 @@ jobs:
         github-sha: v99
         cloud-api-key: ${{ secrets.IBM_CLOUD_API_KEY }}
         cloud-region: us-south
-        icr-namespace: ${{ secrets.ICR_NAMESPACE }}
+        icr-namespace: openeew-test
         registry-hostname: us.icr.io
         image-name: dashboard-gha-test
         k8s-cluster-name: bvucbrsw0jq4m9h0kdag
