@@ -1,14 +1,15 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  build-push-deploy-job:
     runs-on: ubuntu-latest
     name: A job to download and log into ibmcloud cli
     steps:
     - uses: actions/checkout@v2
-    - run : | 
-          echo $VCAP_LOCAL >> ./web/api/vcap-local.json
-          echo REACT_APP_MAPBOX_ACCESS_TOKEN=$REACT_APP_MAPBOX_ACCESS_TOKEN >> ./web/client/.env.local
+    - name : Set environment variables
+      run : | 
+          echo ${{ secrets.VCAP_LOCAL }} >> ./web/api/vcap-local.json
+          echo REACT_APP_MAPBOX_ACCESS_TOKEN=${{ secrets.REACT_APP_MAPBOX_ACCESS_TOKEN }} >> ./web/client/.env.local
     - id: iks-deploy
       uses: edrian-playground/composite-actions@v1
       with:
