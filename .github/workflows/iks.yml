@@ -11,7 +11,7 @@ jobs:
           echo ${{ secrets.VCAP_LOCAL }} >> ./web/api/vcap-local.json
           echo REACT_APP_MAPBOX_ACCESS_TOKEN=${{ secrets.REACT_APP_MAPBOX_ACCESS_TOKEN }} >> ./web/client/.env.local
     - id: iks-deploy
-      uses: edrian-playground/composite-actions@v1
+      uses: call-for-code/build-push-deploy@v1
       with:
         github-sha: ${{ github.sha }}
         cloud-api-key: ${{ secrets.IBM_CLOUD_API_KEY }}
