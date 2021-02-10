@@ -1,6 +1,6 @@
 # This workflow will build a docker container, publish it to IBM Container Registry, and deploy it to an existing IKS cluster
 
-name: Build and Deploy to IKS
+name: Build, Push and Deploy to IKS
 
 # Execute on every push to the default branch. Merging a pull request counts as a push.
 on:
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: call-for-code/build-push-deploy@v1
 
       # Download and Install IBM Cloud CLI
       - name: Install IBM Cloud CLI
